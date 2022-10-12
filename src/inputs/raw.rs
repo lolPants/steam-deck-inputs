@@ -1,5 +1,5 @@
 #[derive(Clone, Copy)]
-#[cfg_attr(not(feature = "parse-inputs"), derive(derive_getters::Getters))]
+#[cfg_attr(not(feature = "parse-inputs"), derive(Debug, derive_getters::Getters))]
 #[allow(dead_code)]
 pub struct Input {
     header: u32,
