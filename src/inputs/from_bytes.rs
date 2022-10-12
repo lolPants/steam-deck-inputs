@@ -1,21 +1,13 @@
-use std::error::Error;
-use std::fmt::Display;
-
 use bytes::{Buf, BytesMut};
+use thiserror::Error;
 
 use super::raw::{Buttons1, Buttons2};
 use super::Input;
 use crate::constants::FRAME_SIZE;
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone, Copy, Error)]
+#[error("not enough bytes to decode input")]
 pub struct NotEnoughBytesError;
-
-impl Error for NotEnoughBytesError {}
-impl Display for NotEnoughBytesError {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "not enough bytes to decode input")
-    }
-}
 
 impl Input {
     pub fn from_bytes(bytes: &mut BytesMut) -> Result<Self, NotEnoughBytesError> {
