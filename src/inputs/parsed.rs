@@ -2,7 +2,7 @@ use derive_getters::Getters;
 
 use super::raw::{Buttons1, Buttons2};
 use super::Inputs;
-use crate::utils::convert_range;
+use crate::utils::{remap_axis, remap_linear};
 
 impl Inputs {
     pub fn increment(&self) -> u32 {
@@ -153,7 +153,7 @@ pub struct SideButtons {
 impl SideButtons {
     #[inline]
     pub fn trigger_value_small(&self) -> u8 {
-        convert_range(self.trigger_value)
+        remap_linear(self.trigger_value)
     }
 }
 
@@ -170,17 +170,17 @@ pub struct Stick {
 impl Stick {
     #[inline]
     pub fn coverage_small(&self) -> u8 {
-        convert_range(self.coverage)
+        remap_linear(self.coverage)
     }
 
     #[inline]
-    pub fn x_small(&self) -> u8 {
-        convert_range(self.x)
+    pub fn x_small(&self) -> i8 {
+        remap_axis(self.x)
     }
 
     #[inline]
-    pub fn y_small(&self) -> u8 {
-        convert_range(self.y)
+    pub fn y_small(&self) -> i8 {
+        remap_axis(self.y)
     }
 }
 
@@ -197,17 +197,17 @@ pub struct Trackpad {
 impl Trackpad {
     #[inline]
     pub fn force_small(&self) -> u8 {
-        convert_range(self.force)
+        remap_linear(self.force)
     }
 
     #[inline]
-    pub fn x_small(&self) -> u8 {
-        convert_range(self.x)
+    pub fn x_small(&self) -> i8 {
+        remap_axis(self.x)
     }
 
     #[inline]
-    pub fn y_small(&self) -> u8 {
-        convert_range(self.y)
+    pub fn y_small(&self) -> i8 {
+        remap_axis(self.y)
     }
 }
 
