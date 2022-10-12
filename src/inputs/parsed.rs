@@ -1,7 +1,7 @@
 use derive_getters::Getters;
 
 use super::raw::{Buttons1, Buttons2};
-use crate::Input;
+use super::Input;
 
 impl Input {
     pub fn dpad(&self) -> DPad {

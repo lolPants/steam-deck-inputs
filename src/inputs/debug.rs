@@ -1,6 +1,6 @@
 use std::fmt::Debug;
 
-use crate::Input;
+use super::Input;
 
 impl Debug for Input {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {

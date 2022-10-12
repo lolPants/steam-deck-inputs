@@ -33,6 +33,4 @@
 )]
 
 mod constants;
-mod inputs;
-
-pub use inputs::Input;
+pub mod inputs;

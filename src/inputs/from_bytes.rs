@@ -4,8 +4,8 @@ use std::fmt::Display;
 use bytes::{Buf, BytesMut};
 
 use super::raw::{Buttons1, Buttons2};
+use super::Input;
 use crate::constants::FRAME_SIZE;
-use crate::Input;
 
 #[derive(Debug, Clone, Copy)]
 pub struct NotEnoughBytesError;
