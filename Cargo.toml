@@ -8,3 +8,8 @@ edition = "2021"
 rust-version = "1.64"
 
 [dependencies]
+derive-getters = "0.2.0"
+
+[features]
+default = ["parse-inputs"]
+parse-inputs = []

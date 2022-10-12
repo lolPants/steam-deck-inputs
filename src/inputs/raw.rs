@@ -1,0 +1,33 @@
+#[derive(Clone, Copy)]
+#[cfg_attr(not(feature = "parse-inputs"), derive(derive_getters::Getters))]
+#[allow(dead_code)]
+pub struct Input {
+    header: u32,
+    increment: u32,
+    buttons_1: u32,
+    buttons_2: u32,
+    left_trackpad_x: i16,
+    left_trackpad_y: i16,
+    right_trackpad_x: i16,
+    right_trackpad_y: i16,
+    accel_axis_right_to_left: i16,
+    accel_axis_top_to_bottom: i16,
+    accel_axis_front_to_back: i16,
+    gyro_axis_right_to_left: i16,
+    gyro_axis_top_to_bottom: i16,
+    gyro_axis_front_to_back: i16,
+    unknown_1: i16,
+    unknown_2: i16,
+    unknown_3: i16,
+    unknown_4: i16,
+    l2_analog: i16,
+    r2_analog: i16,
+    left_stick_x: i16,
+    left_stick_y: i16,
+    right_stick_x: i16,
+    right_stick_y: i16,
+    left_trackpad_push_force: i16,
+    right_trackpad_push_force: i16,
+    left_stick_touch_coverage: i16,
+    right_stick_touch_coverage: i16,
+}
