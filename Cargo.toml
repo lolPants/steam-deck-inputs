@@ -1,0 +1,9 @@
+[package]
+name = "steam-deck-inputs"
+version = "0.1.0"
+authors = ["Jack Baron <jackmbaron@gmail.com>"]
+description = "Read raw inputs from the Steam Deck"
+license = "MIT OR Apache-2.0"
+edition = "2021"
+
+[dependencies]
