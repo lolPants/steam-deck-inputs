@@ -2,6 +2,7 @@ use derive_getters::Getters;
 
 use super::raw::{Buttons1, Buttons2};
 use super::Inputs;
+use crate::utils::convert_range;
 
 impl Inputs {
     pub fn increment(&self) -> u32 {
@@ -149,6 +150,13 @@ pub struct SideButtons {
     five: bool,
 }
 
+impl SideButtons {
+    #[inline]
+    pub fn trigger_value_small(&self) -> u8 {
+        convert_range(self.trigger_value)
+    }
+}
+
 #[derive(Debug, Clone, Copy, Getters)]
 pub struct Stick {
     touch: bool,
@@ -159,6 +167,23 @@ pub struct Stick {
     y: i16,
 }
 
+impl Stick {
+    #[inline]
+    pub fn coverage_small(&self) -> u8 {
+        convert_range(self.coverage)
+    }
+
+    #[inline]
+    pub fn x_small(&self) -> u8 {
+        convert_range(self.x)
+    }
+
+    #[inline]
+    pub fn y_small(&self) -> u8 {
+        convert_range(self.y)
+    }
+}
+
 #[derive(Debug, Clone, Copy, Getters)]
 pub struct Trackpad {
     touch: bool,
@@ -167,6 +192,23 @@ pub struct Trackpad {
 
     x: i16,
     y: i16,
+}
+
+impl Trackpad {
+    #[inline]
+    pub fn force_small(&self) -> u8 {
+        convert_range(self.force)
+    }
+
+    #[inline]
+    pub fn x_small(&self) -> u8 {
+        convert_range(self.x)
+    }
+
+    #[inline]
+    pub fn y_small(&self) -> u8 {
+        convert_range(self.y)
+    }
 }
 
 #[derive(Debug, Clone, Copy, Getters)]
