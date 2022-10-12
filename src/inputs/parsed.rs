@@ -4,6 +4,10 @@ use super::raw::{Buttons1, Buttons2};
 use super::Inputs;
 
 impl Inputs {
+    pub fn increment(&self) -> u32 {
+        self.increment
+    }
+
     pub fn dpad(&self) -> DPad {
         DPad {
             up: self.buttons_1.contains(Buttons1::DPAD_UP),
