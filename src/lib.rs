@@ -32,6 +32,7 @@
     missing_debug_implementations
 )]
 
+mod constants;
 mod inputs;
 
 pub use inputs::Input;
