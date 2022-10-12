@@ -1,9 +1,9 @@
 use derive_getters::Getters;
 
 use super::raw::{Buttons1, Buttons2};
-use super::Input;
+use super::Inputs;
 
-impl Input {
+impl Inputs {
     pub fn dpad(&self) -> DPad {
         DPad {
             up: self.buttons_1.contains(Buttons1::DPAD_UP),

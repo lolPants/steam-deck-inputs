@@ -6,7 +6,7 @@ use hidapi_rusb::{HidDevice, HidError};
 use thiserror::Error;
 
 use crate::constants::{FRAME_SIZE, INTERFACE_NO, PRODUCT_ID, VENDOR_ID};
-use crate::inputs::{Input, NotEnoughBytesError};
+use crate::inputs::{Inputs, NotEnoughBytesError};
 
 pub struct SteamDeckHIDReader {
     device: HidDevice,
@@ -42,13 +42,13 @@ impl SteamDeckHIDReader {
         Err(HIDOpenError::DeviceNotFound)
     }
 
-    pub fn read_inputs(&mut self) -> Result<Input, ReadError> {
+    pub fn read_inputs(&mut self) -> Result<Inputs, ReadError> {
         self.device.read(&mut self.buf)?;
 
         self.bytes.clear();
         self.bytes.put(&self.buf[..]);
 
-        let inputs = Input::from_bytes(&mut self.bytes)?;
+        let inputs = Inputs::from_bytes(&mut self.bytes)?;
         Ok(inputs)
     }
 }

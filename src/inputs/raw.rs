@@ -2,7 +2,7 @@ use bitflags::bitflags;
 
 #[derive(Clone, Copy)]
 #[allow(dead_code)]
-pub struct Input {
+pub struct Inputs {
     pub(crate) header: u32,
     pub(crate) increment: u32,
     pub(crate) buttons_1: Buttons1,

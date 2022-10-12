@@ -2,20 +2,20 @@ use bytes::{Buf, BytesMut};
 use thiserror::Error;
 
 use super::raw::{Buttons1, Buttons2};
-use super::Input;
+use super::Inputs;
 use crate::constants::FRAME_SIZE;
 
 #[derive(Debug, Clone, Copy, Error)]
 #[error("not enough bytes to decode input")]
 pub struct NotEnoughBytesError;
 
-impl Input {
+impl Inputs {
     pub fn from_bytes(bytes: &mut BytesMut) -> Result<Self, NotEnoughBytesError> {
         if bytes.remaining() < FRAME_SIZE {
             return Err(NotEnoughBytesError);
         }
 
-        let input = Input {
+        let input = Inputs {
             header: bytes.get_u32_le(),
             increment: bytes.get_u32_le(),
             buttons_1: Buttons1::from_bits_truncate(bytes.get_u32_le()),

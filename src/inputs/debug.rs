@@ -1,8 +1,8 @@
 use std::fmt::Debug;
 
-use super::Input;
+use super::Inputs;
 
-impl Debug for Input {
+impl Debug for Inputs {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_struct("Input")
             .field("increment", &self.increment)

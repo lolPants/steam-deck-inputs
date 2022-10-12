@@ -5,4 +5,4 @@ mod raw;
 
 pub use from_bytes::NotEnoughBytesError;
 pub use parsed::{Accelerometer, DPad, Gyro, MenuButtons, SideButtons, Stick, Trackpad, ABXY};
-pub use raw::Input;
+pub use raw::Inputs;
