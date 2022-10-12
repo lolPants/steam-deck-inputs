@@ -35,3 +35,4 @@
 mod constants;
 pub mod hid;
 pub mod inputs;
+pub mod utils;
